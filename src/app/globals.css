@@ -73,7 +73,8 @@
     margin: 0;
     box-sizing: border-box;
   }
-  body {
+  body,
+  html {
     @apply bg-background text-foreground;
     /* background-color: #1d2630; */
     min-height: 100dvh;
@@ -84,9 +85,11 @@
       rgb(34, 43, 53) 58%,
       rgb(17, 35, 43) 79%,
       rgb(0, 0, 0) 92%
-    );
+    ) !important;
     background-repeat: no-repeat;
-    color: aliceblue;
+    background-attachment: fixed;
+    background-position: center center;
+    color: white;
   }
   .max-detail-container {
     text-wrap: balance;

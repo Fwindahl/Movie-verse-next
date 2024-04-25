@@ -19,7 +19,9 @@ const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
           <Link className="w-full" href={"/movies/" + movie.id}>
             <div className="overlay w-full  relative flex-col flex items-center">
               <HoverCardTrigger asChild>
-                <img
+                <Image
+                  width={440}
+                  height={660}
                   className="movie-img relative w-full"
                   src={IMAGE_URL + movie.poster_path}
                   alt={movie.title + "poster"}
@@ -38,7 +40,6 @@ const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
                     {movie.vote_average.toFixed(1)} | {movie.release_date}
                   </p>
                 </div>
-                {/* <p>{movie.overview}</p> */}
               </HoverCardContent>
             </div>
           </Link>
