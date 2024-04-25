@@ -82,9 +82,9 @@ const MovieDetailsPage: React.FC<MovieDetailsPageProps> = async ({
                 />
               </div>
             </div>
-            <p>{movieDetails.overview}</p>
-            <h1 className="rwd-h1 pl-[10%]">Similair Movies</h1>
+            <p className="mb-16">{movieDetails.overview}</p>
             <Carousel className="p-5 w-[70%] max-w-screen-md:w-20  min-h-full  m-auto ">
+              <h3 className=" text-2xl py-2 ">Similair Movies</h3>
               <CarouselContent className=" min-w-[70%] h-full ">
                 {similarMovies &&
                   Array.isArray(similarMovies) &&

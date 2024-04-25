@@ -116,6 +116,7 @@
   .overlay .movie-img {
     transition: all 300ms ease-in-out;
     filter: brightness(0.8);
+    border-radius: 5px;
   }
   .overlay:hover .movie-img {
     filter: brightness(1.1);

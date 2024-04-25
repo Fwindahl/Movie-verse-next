@@ -15,7 +15,7 @@ const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
   return (
     <>
       <HoverCard openDelay={50} closeDelay={50}>
-        <div className="w-60 ">
+        <div className=" w-60 ">
           <Link className="w-full" href={"/movies/" + movie.id}>
             <div className="overlay w-full  relative flex-col flex items-center">
               <HoverCardTrigger asChild>
