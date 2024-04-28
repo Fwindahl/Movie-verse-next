@@ -17,13 +17,13 @@ const MovieDetailsPage: React.FC<MovieDetailsPageProps> = async ({
   const IMAGE_BASE_URL = "https://www.themoviedb.org/t/p/w440_and_h660_face";
   const movieDetails = await getMovieDetails(params.id);
   return (
-    <main className="w-full p-[5%] items-start justify-between flex flex-col">
+    <section className="w-full p-[5%] items-start justify-between flex flex-col">
       <Button asChild variant="outline">
         <Link className="back-btn" href={"/"}>
           Back to home
         </Link>
       </Button>
-      <div className="flex mb-50% items-start justify-center  md:items-center  md:flex-nowrap gap-5   w-full flex-wrap-reverse   md:w-[90%]  ">
+      <div className="flex items-start justify-center  md:items-center  md:flex-nowrap gap-5   w-full flex-wrap-reverse   md:w-[90%]  ">
         <div className=" w-[100%]  items-start  flex flex-col gap-4">
           <div>
             <h1 className="rwd-h1">{movieDetails.title}</h1>
@@ -47,7 +47,7 @@ const MovieDetailsPage: React.FC<MovieDetailsPageProps> = async ({
               {movieDetails.genres.map((genre: any, index: number) => (
                 <span
                   key={index}
-                  className="p-1 cursor-pointer text-center  -[#00FF99] rounded-md hover:bg-[#00FF99] hover:text-black transition-all duration-200"
+                  className="p-1 cursor-pointer text-center border border-[#00FF99] rounded-md hover:bg-[#00FF99] hover:text-black transition-all duration-200"
                 >
                   {genre.name}
                 </span>
@@ -58,7 +58,7 @@ const MovieDetailsPage: React.FC<MovieDetailsPageProps> = async ({
         </div>
         <div className=" py-5 w-[40%]">
           <Image
-            className="w-80 max-w-full poster-shadow h-full"
+            className="max-w-full w-full poster-shadow h-full"
             loading="lazy"
             width={350}
             height={300}
@@ -67,11 +67,11 @@ const MovieDetailsPage: React.FC<MovieDetailsPageProps> = async ({
           />
         </div>
       </div>
-      <div className=" m-auto md:ml-0 md:pl-20 w-[70%] md:w-[100%]">
+      <div className=" m-auto md:ml-0  w-[70%] md:w-[100%]">
         <h3 className="text-center text-2xl ">Similair Movies</h3>
         <CarouselMovies params={params} />
       </div>
-    </main>
+    </section>
   );
 };
 
