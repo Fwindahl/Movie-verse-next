@@ -4,11 +4,15 @@ const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const getTrendingMovies = async () => {
-  const res = await fetch(
-    `${BASE_URL}/trending/movie/day?language=en-US&api_key=${API_KEY}`
-  );
-  const data = await res.json();
-  return data.results;
+  try {
+    const res = await fetch(
+      `${BASE_URL}/trending/movie/day?language=en-US&api_key=${API_KEY}`
+    );
+    const data = await res.json();
+    return data.results;
+  } catch (error) {
+      throw new Error("Unable to fetch with error message: {}", error)
+  }
 };
 
 export const getMovies = async (query: string) => {

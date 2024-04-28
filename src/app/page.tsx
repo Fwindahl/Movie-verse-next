@@ -1,26 +1,39 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { getTrendingMovies } from "../../utils/requests";
 import MovieCard from "./components/MovieCard";
 import { Movie } from "../../utils/interfaces";
 import Header from "./components/Header";
+import { AsyncStatus, handleLoading } from "../../utils/util";
 
 export default function HomePage() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [status, setStatus] = useState<AsyncStatus>(AsyncStatus.idle)
 
   
 
+  const fetchMovies = useCallback( async () => {
+    try {
+      const trendingMovies = await getTrendingMovies();
+      setMovies(trendingMovies);
+    } catch (error) {
+      console.error("Det uppstod ett fel:", error);
+    }
+  },[])
+  
+
   useEffect(() => {
-    async function fetchMovies() {
-      try {
-        const trendingMovies = await getTrendingMovies();
-        setMovies(trendingMovies);
-      } catch (error) {
-        console.error("Det uppstod ett fel:", error);
-      }
+    if(!!movies.length){
+      fetchMovies().then(()=>{
+        handleLoading(AsyncStatus.success, 300, setStatus)
+      }).catch(()=>{
+        setStatus(AsyncStatus.fail);
+      })
     }
 
-    fetchMovies();
+    return () => {
+      setStatus(AsyncStatus.idle)
+    }
   }, []);
 
   return (
@@ -31,8 +44,11 @@ export default function HomePage() {
         Top trending movies
       </h1>
       <div className="movie-layout pb-28">
-        {movies.map((movie: Movie) => {
+        {status == AsyncStatus.success && movies.map((movie: Movie) => {
           return <MovieCard key={movie.id} movie={movie}></MovieCard>;
+        })}
+        {status == AsyncStatus.pending && ["1","2"].map((skel) => {
+          return <div key={skel}>{skel}</div>;
         })}
       </div>
     </main>
