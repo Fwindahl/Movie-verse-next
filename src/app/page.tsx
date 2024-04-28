@@ -8,6 +8,8 @@ import Header from "./components/Header";
 export default function HomePage() {
   const [movies, setMovies] = useState<Movie[]>([]);
 
+  
+
   useEffect(() => {
     async function fetchMovies() {
       try {
