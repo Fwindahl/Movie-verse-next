@@ -8,10 +8,10 @@ import { AsyncStatus, handleLoading } from "../../utils/util";
 
 export default function HomePage() {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [status, setStatus] = useState<AsyncStatus>(AsyncStatus.idle)
+  const [status, setStatus] = useState<AsyncStatus>(AsyncStatus.pending)
 
   
-
+console.log(status)
   const fetchMovies = useCallback( async () => {
     try {
       const trendingMovies = await getTrendingMovies();
@@ -23,7 +23,8 @@ export default function HomePage() {
   
 
   useEffect(() => {
-    if(!!movies.length){
+    if(!movies.length){
+      setStatus(AsyncStatus.pending);
       fetchMovies().then(()=>{
         handleLoading(AsyncStatus.success, 300, setStatus)
       }).catch(()=>{
@@ -47,8 +48,8 @@ export default function HomePage() {
         {status == AsyncStatus.success && movies.map((movie: Movie) => {
           return <MovieCard key={movie.id} movie={movie}></MovieCard>;
         })}
-        {status == AsyncStatus.pending && ["1","2"].map((skel) => {
-          return <div key={skel}>{skel}</div>;
+        {status == AsyncStatus.pending && ["1","2","1","2","1","2"].map((skel) => {
+          return <div style={{border: "2px solid red", padding: "10px"}} className="p-5 border" key={skel}>{skel}</div>;
         })}
       </div>
     </main>

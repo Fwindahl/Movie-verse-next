@@ -1,7 +1,7 @@
 import { Movie } from "./interfaces";
 
-const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const API_KEY = "179981c0874e4337bce6394fea23d623"
+const BASE_URL = "https://api.themoviedb.org/3"
 
 export const getTrendingMovies = async () => {
   try {
