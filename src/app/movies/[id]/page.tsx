@@ -58,7 +58,7 @@ const MovieDetailsPage: React.FC<MovieDetailsPageProps> = async ({
         </div>
         <div className=" py-5 w-[40%]">
           <Image
-            className="max-w-full w-full poster-shadow h-full"
+            className="max-w-full w-80 poster-shadow h-full"
             loading="lazy"
             width={350}
             height={300}
