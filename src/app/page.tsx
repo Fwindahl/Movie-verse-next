@@ -28,7 +28,7 @@ export default function HomePage() {
       <h1 className="text-3xl mb-5 text-primary-foreground">
         Top trending movies
       </h1>
-      <div className="movie-layout ">
+      <div className="movie-layout pb-28">
         {movies.map((movie: Movie) => {
           return <MovieCard key={movie.id} movie={movie}></MovieCard>;
         })}

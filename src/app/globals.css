@@ -66,18 +66,19 @@
   }
 }
 
+* {
+  @apply border-border;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  /* background: rgb(17, 35, 43) 79%; */
+}
 @layer base {
-  * {
-    @apply border-border;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  body,
-  html {
+  body {
     @apply bg-background text-foreground;
     /* background-color: #1d2630; */
-    min-height: 100dvh;
     background: linear-gradient(
       41deg,
       rgb(0, 0, 0) 0%,
@@ -85,7 +86,7 @@
       rgb(34, 43, 53) 58%,
       rgb(17, 35, 43) 79%,
       rgb(0, 0, 0) 92%
-    ) !important;
+    );
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
@@ -96,14 +97,18 @@
     max-width: 500px;
   }
   .rwd-h1 {
-    font-size: clamp(28px, 4vw, 40px);
-    max-width: 500px;
+    font-size: clamp(38px, 4vw, 10rem);
+    max-width: 800px;
     font-weight: 800;
     text-wrap: balance;
     text-shadow: 2px 2px 5px black;
   }
+  p,
+  span {
+    font-size: clamp(12px, 4vw, 18px);
+  }
   .mobile-pad {
-    padding: 10%;
+    /* padding: 5%; */
   }
 
   .movie-layout {
@@ -128,19 +133,15 @@
   .poster-shadow {
     box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.442);
   }
+}
+@media screen and (max-width: 800px) {
   .mobile-bg {
-    width: 80%;
+    position: absolute;
+    width: 100%;
+    filter: grayscale(0.5);
+    z-index: -100;
   }
-  @media screen and (max-width: 1000px) {
-    .mobile-bg {
-      position: absolute;
-      width: 100%;
-      max-width: 100%;
-      filter: grayscale(0.5);
-      z-index: -10;
-    }
-    .mobile-pad {
-      padding-left: 0%;
-    }
-  }
+  /* .mobile-pad {
+    padding-left: 0%;
+  } */
 }

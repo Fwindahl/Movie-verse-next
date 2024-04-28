@@ -9,7 +9,7 @@ interface SearchResultPage {
 const SearchPage: React.FC<SearchResultPage> = async ({ params }) => {
   const searchText = params.query;
   const movies = await getMovies(searchText);
-  return <div>hello</div>;
+  return <div>hello world</div>;
 };
 
 export default SearchPage;

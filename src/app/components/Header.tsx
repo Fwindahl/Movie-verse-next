@@ -21,15 +21,20 @@ const Header = () => {
   };
   return (
     <header
-      className="flex  border-[#00FF99] mb-16 h-28 justify-between items-center px
+      className=" flex  flex-wrap  mb-16 h-28 justify-between items-center
     px-20 "
     >
       <Link href={"/"}>
-        <h1 className=" text-[#00FF99]  text-4xl font-bold">Flex Movies</h1>
+        <h1 className=" text-[#00FF99] text-4xl font-bold">Flex Movies</h1>
       </Link>
-      <nav className="flex w-full max-w-sm items-center space-x-2">
-        <form onSubmit={(e) => handleMovieSearch(e)} action="">
+      <nav className="flex  w-full max-w-sm items-center space-x-2">
+        <form
+          className="flex gap-2"
+          onSubmit={(e) => handleMovieSearch(e)}
+          action=""
+        >
           <Input
+            className="text-[#1d1d1d]"
             onChange={(e) => setSearchMovie(e.target.value)}
             type="text"
             placeholder="Sök.."

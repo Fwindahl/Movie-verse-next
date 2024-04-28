@@ -17,18 +17,19 @@ const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
       <HoverCard openDelay={50} closeDelay={50}>
         <div className=" w-60 ">
           <Link className="w-full" href={"/movies/" + movie.id}>
-            <div className="overlay w-full  relative flex-col flex items-center">
-              <HoverCardTrigger asChild>
+            <div className="overlay  relative flex-col flex items-center">
+              <HoverCardTrigger className="w-full" asChild>
                 <Image
                   width={440}
                   height={660}
-                  className="movie-img relative w-full"
+                  className="movie-img relative "
                   src={IMAGE_URL + movie.poster_path}
                   alt={movie.title + "poster"}
+                  priority={true}
                 />
               </HoverCardTrigger>
               <HoverCardContent
-                className="  border-transparent  bg-[#1d1d1dc7]  hover:bg-[#000000]  text-white absolute bottom-1  w-60 rounded-none"
+                className="w-full text-[100%] min-w-60 text-balance  border-transparent  bg-[#1d1d1dc7]  hover:bg-[#000000]  text-white absolute bottom-1  rounded-none"
                 avoidCollisions={false}
                 align="start"
               >
