@@ -33,7 +33,7 @@ const CarouselMovies: React.FC<CarouselSimilarMovies> = async ({ params }) => {
             },
           },
         }}
-        className="p-2   items-center flex w-[100%] min-h-full m-auto   "
+        className="p-2 items-center flex w-[100%] min-h-full m-auto   "
       >
         <CarouselContent className="  min-w-[100%] h-full ">
           {similarMovies &&
